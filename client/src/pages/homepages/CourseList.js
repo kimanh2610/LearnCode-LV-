@@ -165,8 +165,13 @@ export default function CourseList() {
             onNext={handleNext}
             onPrevious={handlePrevious}
         />
+       <Typography variant="h3" sx={{display: 'block', marginLeft: "2.5rem"}}>
+            Bài viết
+        </Typography>
         <Card sx={{m: 4, p: 4}}>
+           
             {!showForm && <Box>
+              
                 <TextField
                     fullWidth
                     multiline

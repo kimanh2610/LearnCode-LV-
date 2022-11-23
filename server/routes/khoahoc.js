@@ -30,6 +30,13 @@ module.exports = function (app) {
         return res.status(200).send(await query(db, _qr));
     });
 
+    app.get('/api-v1/khoahoc', async (req, res) => {
+        let _qr = `SELECT * FROM khoa_hoc WHERE active = 1 `
+        const {search} = req.query;
+        if (search) _qr += ` AND ( kh_makh like '%${search}%' OR kh_ten like '%${search}%' or kh_create_at like '%${search}%' )`;
+        return res.status(200).send(await query(db, _qr));
+    });
+
     app.get('/api/khoahoc/:id', async (req, res) => {
         return res.status(200).send(await query(db, `SELECT * FROM khoa_hoc WHERE kh_id = ?`, req.params.id));
     })

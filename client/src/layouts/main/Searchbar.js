@@ -46,7 +46,7 @@ export default function Searchbar() {
 
     useEffect(() => {
         (async () => {
-            const _res = await getData(API_BASE_URL + `/api/khoahoc?search=${search}`);
+            const _res = await getData(API_BASE_URL + `/api-v1/khoahoc?search=${search}`);
             setProducts(_res.data)
         })()
     }, [search])
