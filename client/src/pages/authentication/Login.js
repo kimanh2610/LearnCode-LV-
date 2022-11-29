@@ -75,7 +75,7 @@ export default function Login() {
             <MHidden width="mdDown">
                 <SectionStyle>
                     <Typography variant="h4" sx={{px: 5, mt: 10, mb: 5}}>
-                        Cửa hàng HYBE xin chào!!
+                        LearnCode xin chào!!
                     </Typography>
                     <img src="/static/illustrations/login.png" alt="login"/>
                 </SectionStyle>

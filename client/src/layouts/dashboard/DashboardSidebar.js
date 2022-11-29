@@ -143,7 +143,7 @@ export default function DashboardSidebar({isOpenSidebar, onCloseSidebar}) {
                     </Box>
                     <Typography variant="h5">{store.ch_ten}</Typography>
 
-                    <MHidden width="lgDown">
+                    <MHidden width="smDown">
                         {!isCollapse && (
                             <IconCollapse
                                 onToggleCollapse={onToggleCollapse}
@@ -211,7 +211,7 @@ export default function DashboardSidebar({isOpenSidebar, onCloseSidebar}) {
                 }),
             }}
         >
-            <MHidden width="lgUp">
+            <MHidden width="smDown">
                 <Drawer
                     open={isOpenSidebar}
                     onClose={onCloseSidebar}
@@ -223,7 +223,7 @@ export default function DashboardSidebar({isOpenSidebar, onCloseSidebar}) {
                 </Drawer>
             </MHidden>
 
-            <MHidden width="lgDown">
+            <MHidden width="smDown">
                 <Drawer
                     open
                     variant="persistent"

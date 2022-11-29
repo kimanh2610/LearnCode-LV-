@@ -165,7 +165,7 @@ export default function CourseList() {
             onNext={handleNext}
             onPrevious={handlePrevious}
         />
-       <Typography variant="h3" sx={{display: 'block', marginLeft: "2.5rem"}}>
+       <Typography variant="h3" sx={{display: 'block', marginLeft: "2.5rem", marginTop: "-.5rem"}}>
             Bài viết
         </Typography>
         <Card sx={{m: 4, p: 4}}>
