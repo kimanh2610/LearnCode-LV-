@@ -12,18 +12,20 @@ const styles = StyleSheet.create({
     col4: { width: '25%' },
     col8: { width: '75%' },
     col6: { width: '50%' },
-    mb8: { marginBottom: 8 },
+    mb8: { marginBottom: 10 },
     mb40: { marginBottom: 40 },
+    pass: {textAlign: 'center', fontSize: '30px', marginTop: '40px'},
+    trao: {textAlign: 'center', fontSize: '10px', marginTop: '10px'},
     overline: {
         fontSize: 8,
         marginBottom: 8,
-        fontWeight: 700,
         letterSpacing: 1.2,
         textTransform: 'uppercase'
     },
-    h1: { fontSize: 36, fontWeight: 700 },
+    h1: { fontSize: 36, fontWeight: 700, textAlign: 'center' },
+    h2: { fontSize: 16, textAlign: 'center' },
     h3: { fontSize: 16, fontWeight: 700 },
-    title: {marginTop: "10px"},
+    title: {marginTop: "10px", color: "#2596be"},
     wrapKhoaHoc: {marginTop: "60px"},
     h4: { fontSize: 13, fontWeight: 700 },
     body1: { fontSize: 10 },
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         borderColor: '#DFE3E8'
     },
+    footer1: {marginTop: "20px"},
     gridContainer: { flexDirection: 'row'},
     table: { display: 'flex', width: 'auto' },
     tableHeader: {},
@@ -65,6 +68,7 @@ const styles = StyleSheet.create({
     tableCell_3: { width: '15%' }
 });
 
+
 // ----------------------------------------------------------------------
 
 export default function InvoicePDF({diem, baithi, userName}) {
@@ -79,17 +83,21 @@ export default function InvoicePDF({diem, baithi, userName}) {
                 </View>
 
                 <View style={{ alignItems: 'right', flexDirection: 'column' }}>
-                    <Text style={[styles.overline, styles.mb8]}>Đã hoàn thành khóa học {baithi.baikiemtra.kh_ten}</Text>
+                    <Text style={[styles.overline, styles.mb8 , styles.pass]}>Chứng chỉ hoàn thành</Text>
                 </View>
-
                 <View style={{ alignItems: 'right', flexDirection: 'column' }}>
-                    <Text style={[styles.overline, styles.subtitle2, styles.wrapKhoaHoc]}>Cấp chứng chỉ</Text>
-                    <Text style={[styles.overline, styles.h1]}>Khóa học {baithi.baikiemtra.kh_ten}</Text>
+                    <Text style={[styles.overline,styles.trao]}>Được trao cho</Text>
+                </View>
+                <View>
+                    <Text style={styles.h1}>{userName}</Text>
+                </View>
+                <View style={{ alignItems: 'right', flexDirection: 'column' }}>
+
+                    <Text style={[styles.overline, styles.h2]}>Xác nhận hoàn thành khóa học {baithi.baikiemtra.kh_ten}</Text>
                 </View>
 
-                <View style={[styles.gridContainer]}>
+                <View style={[styles.gridContainer, styles.footer1]}>
                     <View style={styles.col8}>
-                        <Text style={styles.h3}>{userName}</Text>
                         <Text style={styles.subtitle2}>Điểm: {diem} </Text>
                         <Text style={styles.subtitle2}>Ngày thi: {ngay.getDate()}/{ngay.getMonth()}/{ngay.getFullYear()}</Text>
                     </View>

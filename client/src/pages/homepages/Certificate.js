@@ -71,6 +71,7 @@ export default function Certificate() {
                 let _rs = await postData(API_BASE_URL + `/api-v1/ketquakiemtra`, _values);
                 setLoad((e) => e + 1);
                 setKetQua(_rs.data);
+                
                 enqueueSnackbar('Bạn đã thi xong', {
                     variant: 'success',
                     action: (key) => (
@@ -101,7 +102,7 @@ export default function Certificate() {
         setFieldValue,
         getFieldProps,
     } = formik;
-    console.log(values)
+
 
     useEffect(() => {
         (async () => {
@@ -113,6 +114,7 @@ export default function Certificate() {
                     message: 'pass',
                     points: _user.data[0].cc_diem,
                 });
+
                 setBaiKiemTra({
                     baikiemtra: {
                         kh_ten: _user.data[0].kh_ten
@@ -120,6 +122,7 @@ export default function Certificate() {
                 })
 
             }
+
             setBaiKiemTra(res.data);
             setArrayErr([...Array(res.data.cauhoi.length)]);
             setFieldValue('selectValues', [...Array(res.data.cauhoi.length)]);
@@ -279,7 +282,7 @@ export default function Certificate() {
                     <Invoice diem={ketQua ? ketQua?.points : 0} baithi={baiKiemTra ? baiKiemTra : ''}
                              userName={userName}/>
                 </Page>}
-            {(ketQua?.message !== 'pass' && !!baiKiemTra?.baikiemtra) &&
+            {(ketQua?.message === 'fail' && !!baiKiemTra?.baikiemtra) &&
                 <FailCertificate diem={ketQua ? ketQua?.points : 0} baithi={baiKiemTra ? baiKiemTra : ''}
                                  userName={userName}/>
 

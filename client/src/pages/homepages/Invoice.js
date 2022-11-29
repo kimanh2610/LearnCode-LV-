@@ -63,17 +63,18 @@ export default function Invoice({diem, baithi, userName}) {
                     </Grid>
 
                     <Grid container>
-                        <Grid item xs={12} md={9} sx={{py: 3}}>
-                            <Typography variant="body2">Cấp chứng chỉ:</Typography>
-                            <Typography variant="h1" sx={{ml: 2, color: 'text.primary', textAlign: 'left'}}>
-                                Khóa học {baithi.baikiemtra?.kh_ten}
+                        <Grid item xs={12} md={12} sx={{py: 3}}>
+                        <Typography sx={{textTransform: 'uppercase', mb: 1 , textAlign: 'center', fontSize: "40px"  }}>Chứng chỉ hoàn thành</Typography>
+                            <Typography sx={{textTransform: 'uppercase', mb: 1 , textAlign: 'center', fontSize: "20px" }}>Được trao cho</Typography>
+                            <Typography  sx={{textTransform: 'uppercase', mb: 1 , textAlign: 'center', fontSize: "60px", fontWeight: "bold"}}>{userName}</Typography>
+                            <Typography sx={{textTransform: 'uppercase', mb: 1 , textAlign: 'center', fontSize: "30px" }}>
+                                 Xác nhận hoàn thành khóa học {baithi.baikiemtra?.kh_ten}
                             </Typography>
                         </Grid>
                     </Grid>
 
 
                     <Grid item xs={12} md={9} sx={{py: 3}}>
-                        <Typography variant="h4" sx={{color: 'text.primary'}}>{userName}</Typography>
                         <Typography variant="body2">Điểm: {diem}</Typography>
                         <Typography variant="body2">
                             Ngày : {ngay.getDate()}/{ngay.getMonth()}/{ngay.getFullYear()}
