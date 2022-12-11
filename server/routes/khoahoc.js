@@ -199,7 +199,7 @@ module.exports = function (app) {
     app.get("/api-v1/baihoc/:id", async (req, res) => {
         const {id} = req.params;
         return res.status(200).send(await query(db, `SELECT
-                                                            noi_dung_bai_hoc.*
+                                                            noi_dung_bai_hoc.*, bai_hoc.video
                                                         FROM
                                                             bai_hoc
                                                         LEFT JOIN noi_dung_bai_hoc ON noi_dung_bai_hoc.ndbh_idbh = bai_hoc.bh_id

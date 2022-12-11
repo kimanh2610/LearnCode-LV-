@@ -18,6 +18,7 @@ export default function LessonContent({idbh}) {
         (async () => {
             const res = await getData(API_BASE_URL + `/api-v1/baihoc/${idbh}`);
             console.log(res.data)
+            console.log(idbh, 'aaaaaaaaaaaaaaaaaaaaaaa')
             setLesson(res.data)
         })()
     }, [idbh]);
@@ -38,6 +39,15 @@ export default function LessonContent({idbh}) {
                     }));
                     navigate(PATH_PAGE.code, {replace: true})
                 }} sx={{width: '20rem', my: 1}}>Chạy thử</Button> : ''}
+                {
+                e.video == 1 && 
+                <Box sx={{marginTop: "25px"}}>
+                    <Typography variant='h5'>Bạn có thể tham khảo qua video sau:</Typography>
+                    <Box>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/AzmdwZ6e_aM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </Box>
+                </Box>
+                }
             </Box>
         ))}
         {lessons?.length === 0 && <Typography>Chưa có bài học</Typography>}
