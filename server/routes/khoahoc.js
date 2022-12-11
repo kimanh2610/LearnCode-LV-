@@ -97,6 +97,7 @@ module.exports = function (app) {
 
     app.put('/api/baihoc/:id', async (req, res) => {
         const data = req.body;
+        console.log(data)
         const {id} = req.params;
 
         let bai_hoc = {
@@ -112,6 +113,7 @@ module.exports = function (app) {
         await query(db, "DELETE FROM noi_dung_bai_hoc WHERE ndbh_idbh  = ?", id);
 
         data.bai_hoc.map(e => ndbh.push([e.bh_mota, e.bh_code, e.bh_lang?.id || '', e.bh_active, e.bh_tieude, id]));
+        console.log(data)
 
         await query(db, `INSERT INTO noi_dung_bai_hoc(ndbh_mota, ndbh_code, ndbh_code_lang, ndbh_code_run, ndbh_tieude, ndbh_idbh) VALUES ?`, [ndbh])
 
